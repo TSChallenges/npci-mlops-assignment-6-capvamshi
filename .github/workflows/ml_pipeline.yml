@@ -33,11 +33,11 @@ jobs:
 
       - name: Run Preprocessing
         run: |
-          python preprocessing.py
+          python3 preprocessing.py
 
       - name: Train Model
         run: |
-          python train_model.py
+          python3 train_model.py
 
       - name: Run Test Cases
         run: |
