@@ -31,7 +31,7 @@ jobs:
         run: |
           python3 preprocessing.py
 
-      - name: Train Model
+      - name: Run Train Model
         run: |
           python3 train_model.py
 
@@ -41,7 +41,7 @@ jobs:
 
   docker-build:
     runs-on: ubuntu-latest
-    needs: test
+    needs: preprocess
 
     steps:
       - name: Checkout Repository
