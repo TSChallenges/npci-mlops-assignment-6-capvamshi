@@ -39,32 +39,18 @@ jobs:
         run: |
           pytest tests/test_pipeline.py
 
-  
-  docker-build:
+  docker-build-run:
     runs-on: ubuntu-latest
     needs: process-model
-
-    outputs:
-      image_name: ${{ steps.build_image.outputs.image_name }}
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Build Docker Image
-        id: build_image
         run: |
           docker build -t my_ml_app .
-          echo "::set-output name=image_name::my_ml_app"
-
-  docker-run:
-    runs-on: ubuntu-latest
-    needs: docker-build
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
 
       - name: Run Docker Container
         run: |
-          docker run ${{ needs.docker-build.outputs.image_name }}
+          docker run my_ml_app
