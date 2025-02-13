@@ -32,7 +32,7 @@ jobs:
           python3 preprocessing.py
 
       - name: Upload Preprocessed Data
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: preprocessed-data
           path: ./preprocessed_data/
@@ -51,7 +51,7 @@ jobs:
           python-version: '3.8'
 
       - name: Download Preprocessed Data
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: preprocessed-data
           path: ./preprocessed_data/
@@ -66,7 +66,7 @@ jobs:
           python3 train_model.py
 
       - name: Upload Trained Model
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trained-model
           path: ./model/
@@ -85,7 +85,7 @@ jobs:
           python-version: '3.8'
 
       - name: Download Trained Model
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: trained-model
           path: ./model/
