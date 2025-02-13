@@ -37,3 +37,10 @@ jobs:
       - name: Run Test Cases
         run: |
           pytest tests/test_pipeline.py
+      - name: Build Docker Image
+        run: |
+          docker build -t my_ml_app .
+      
+      - name: Run Docker Container
+        run: |
+          docker run my_ml_app 
