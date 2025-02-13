@@ -11,4 +11,4 @@ ADD . /app
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Run preprocessing and model training scripts
-CMD ["python", "preprocessing.py"] && ["python", "train_model.py"]
+CMD ["sh", "-c", "python preprocessing.py && python train_model.py"]
